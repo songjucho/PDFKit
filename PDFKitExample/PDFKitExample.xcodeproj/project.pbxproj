@@ -9,23 +9,25 @@
 /* Begin PBXBuildFile section */
 		5C8AB73A261DA20E001764F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AB739261DA20E001764F2 /* AppDelegate.swift */; };
 		5C8AB73C261DA20E001764F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AB73B261DA20E001764F2 /* SceneDelegate.swift */; };
-		5C8AB73E261DA20E001764F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AB73D261DA20E001764F2 /* ViewController.swift */; };
-		5C8AB741261DA20E001764F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C8AB73F261DA20E001764F2 /* Main.storyboard */; };
 		5C8AB743261DA20F001764F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C8AB742261DA20F001764F2 /* Assets.xcassets */; };
 		5C8AB746261DA20F001764F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C8AB744261DA20F001764F2 /* LaunchScreen.storyboard */; };
 		5C8AB74F261DA29A001764F2 /* PDFCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AB74E261DA29A001764F2 /* PDFCreator.swift */; };
+		5C8AB753261DAAAB001764F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C8AB752261DAAAB001764F2 /* Main.storyboard */; };
+		5C8AB757261DAAC5001764F2 /* FlyerBuilderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AB755261DAAC5001764F2 /* FlyerBuilderViewController.swift */; };
+		5C8AB758261DAAC5001764F2 /* PDFPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AB756261DAAC5001764F2 /* PDFPreviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5C8AB736261DA20E001764F2 /* PDFKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PDFKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C8AB739261DA20E001764F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C8AB73B261DA20E001764F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5C8AB73D261DA20E001764F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5C8AB740261DA20E001764F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5C8AB742261DA20F001764F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C8AB745261DA20F001764F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C8AB747261DA20F001764F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C8AB74E261DA29A001764F2 /* PDFCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCreator.swift; sourceTree = "<group>"; };
+		5C8AB752261DAAAB001764F2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5C8AB755261DAAC5001764F2 /* FlyerBuilderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyerBuilderViewController.swift; sourceTree = "<group>"; };
+		5C8AB756261DAAC5001764F2 /* PDFPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFPreviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +62,11 @@
 			children = (
 				5C8AB739261DA20E001764F2 /* AppDelegate.swift */,
 				5C8AB73B261DA20E001764F2 /* SceneDelegate.swift */,
-				5C8AB73D261DA20E001764F2 /* ViewController.swift */,
+				5C8AB755261DAAC5001764F2 /* FlyerBuilderViewController.swift */,
+				5C8AB756261DAAC5001764F2 /* PDFPreviewViewController.swift */,
 				5C8AB74E261DA29A001764F2 /* PDFCreator.swift */,
-				5C8AB73F261DA20E001764F2 /* Main.storyboard */,
 				5C8AB742261DA20F001764F2 /* Assets.xcassets */,
+				5C8AB752261DAAAB001764F2 /* Main.storyboard */,
 				5C8AB744261DA20F001764F2 /* LaunchScreen.storyboard */,
 				5C8AB747261DA20F001764F2 /* Info.plist */,
 			);
@@ -127,9 +130,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C8AB753261DAAAB001764F2 /* Main.storyboard in Resources */,
 				5C8AB746261DA20F001764F2 /* LaunchScreen.storyboard in Resources */,
 				5C8AB743261DA20F001764F2 /* Assets.xcassets in Resources */,
-				5C8AB741261DA20E001764F2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,8 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C8AB73E261DA20E001764F2 /* ViewController.swift in Sources */,
 				5C8AB74F261DA29A001764F2 /* PDFCreator.swift in Sources */,
+				5C8AB758261DAAC5001764F2 /* PDFPreviewViewController.swift in Sources */,
+				5C8AB757261DAAC5001764F2 /* FlyerBuilderViewController.swift in Sources */,
 				5C8AB73A261DA20E001764F2 /* AppDelegate.swift in Sources */,
 				5C8AB73C261DA20E001764F2 /* SceneDelegate.swift in Sources */,
 			);
@@ -150,14 +154,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5C8AB73F261DA20E001764F2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5C8AB740261DA20E001764F2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5C8AB744261DA20F001764F2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

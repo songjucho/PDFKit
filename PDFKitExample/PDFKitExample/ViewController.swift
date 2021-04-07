@@ -8,10 +8,16 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    public var documentData: Data?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        if let data = documentData {
+          pdfView.document = PDFDocument(data: data)
+          pdfView.autoScales = true
+        }
     }
 
 
