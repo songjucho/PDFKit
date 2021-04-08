@@ -9,6 +9,19 @@ import UIKit
 import PDFKit
 
 class PDFCreator: NSObject {
+    
+    let title: String
+    let body: String
+    let image: UIImage
+    let contactInfo: String
+    
+    init(title: String, body: String, image: UIImage, contact: String) {
+        self.title = title
+        self.body = body
+        self.image = image
+        self.contactInfo = contact
+    }
+    
     // pdf 를 만드는 함수
     func createFlyer() -> Data {
         // 문서 이름과 저자를 지정한 메타데이터를 만들고 포맷을 생성해 documentInfo에 할당
