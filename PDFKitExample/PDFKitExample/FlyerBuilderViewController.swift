@@ -66,8 +66,9 @@ class FlyerBuilderViewController: UIViewController {
     // preview 버튼 누르면 일어나는 일
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "previewSegue" {
-            guard let vc = segue.destination as? PDFPreviewViewController else { return }
-            let pdfCreator = PDFCreator()
+            guard let vc = segue.destination as? PDFPreviewViewController,
+                  let title = flyerTextEntry.text else { return }
+            let pdfCreator = PDFCreator(title: title, body: "", image: UIImage(), contact: "")
             // 데이터 주입 - 캡슐화 안해도 되나?
             vc.documentData = pdfCreator.createFlyer()
         }

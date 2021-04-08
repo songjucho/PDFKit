@@ -27,7 +27,8 @@ class PDFCreator: NSObject {
         // 문서 이름과 저자를 지정한 메타데이터를 만들고 포맷을 생성해 documentInfo에 할당
         let pdfMetaData = [
             kCGPDFContextCreator: "Flyer Builder",
-            kCGPDFContextAuthor: "songjureu"
+            kCGPDFContextAuthor: "songjureu",
+            kCGPDFContextTitle: title
         ]
         let format = UIGraphicsPDFRendererFormat()
         format.documentInfo = pdfMetaData as [String: Any]
@@ -43,14 +44,33 @@ class PDFCreator: NSObject {
         let data = renderer.pdfData { context in
             // draw 하기 전에 무조건 호출해주어야함. 만약 여러 페이지의 pdf를 만들려면 더 호출해도 됨.
             context.beginPage()
+            
             // string draw 하는 부분
+            let titleBottom = addTitle(pageRect: pageRect)
+            /*
             let attributes = [
                 NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 72)
             ]
             let text = "하이 헬로우 안녕"
             text.draw(at: CGPoint(x: 0, y: 0), withAttributes: attributes)
+             */
         }
         return data
+    }
+    
+    func  addTitle(pageRect: CGRect) -> CGFloat {
+        // 폰트 설정 지정 후 attribute에 추가
+        let titleFont = UIFont.systemFont(ofSize: 18.0, weight: .bold)
+        let titleAttributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: titleFont]
+        // 타이틀에 설정을 추가한 후 NSAttributedString 타입 인스턴스로 생성
+        let attributedTitle = NSAttributedString(string: title, attributes: titleAttributes)
+        let titleStringSize = attributedTitle.size()
+        // page를 기준으로 중앙 정렬을 위한 좌표 설정
+        let titleStringRect = CGRect(x: (pageRect.width - titleStringSize.width) / 2.0 , y: 36, width: titleStringSize.width, height: titleStringSize.height)
+        
+        attributedTitle.draw(in: titleStringRect)
+        // 타이틀을 그린 후의 y좌표를 리턴
+        return titleStringRect.origin.y + titleStringRect.size.height
     }
     
 }
