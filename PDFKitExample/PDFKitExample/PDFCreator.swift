@@ -47,7 +47,8 @@ class PDFCreator: NSObject {
             
             // string draw 하는 부분
             let titleBottom = addTitle(pageRect: pageRect)
-            addBodyText(pageRect: pageRect, textTop: titleBottom + 36.0)
+            let imageBottom = addImage(pageRect: pageRect, imageTop: titleBottom + 18.0)
+            addBodyText(pageRect: pageRect, textTop: imageBottom + 36.0)
             /*
             let attributes = [
                 NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 72)
@@ -91,4 +92,22 @@ class PDFCreator: NSObject {
         attributedText.draw(in: textRect)
     }
     
+    func addImage(pageRect: CGRect, imageTop: CGFloat) -> CGFloat {
+        // 이미지의 최대 크기 지정
+        let maxHeight = pageRect.height * 0.4
+        let maxWidth = pageRect.width * 0.8
+        // 가로 세로 비율 중 작은 것에 맞춤
+        let aspectWidth = maxWidth / image.size.width
+        let aspectHeight = maxHeight / image.size.height
+        let aspectRatio = min(aspectWidth, aspectHeight)
+        // 크기 조절
+        let scaledWidth = image.size.width * aspectRatio
+        let scaledHeight = image.size.height * aspectRatio
+        // 중앙 정렬을 위한 코드
+        let imageX = (pageRect.width - scaledWidth) / 2.0
+        let imageRect = CGRect(x: imageX, y: imageTop, width: scaledWidth, height: scaledHeight)
+        // 그려줌
+        image.draw(in: imageRect)
+        return imageRect.origin.y + imageRect.size.height
+    }
 }
