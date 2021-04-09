@@ -47,6 +47,7 @@ class PDFCreator: NSObject {
             
             // string draw 하는 부분
             let titleBottom = addTitle(pageRect: pageRect)
+            addBodyText(pageRect: pageRect, textTop: titleBottom + 36.0)
             /*
             let attributes = [
                 NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 72)
@@ -71,6 +72,23 @@ class PDFCreator: NSObject {
         attributedTitle.draw(in: titleStringRect)
         // 타이틀을 그린 후의 y좌표를 리턴
         return titleStringRect.origin.y + titleStringRect.size.height
+    }
+    
+    func addBodyText(pageRect: CGRect, textTop: CGFloat) {
+        let textFont = UIFont.systemFont(ofSize: 12.0, weight: .regular)
+        // NSMutableParagraphStyle이 텍스트가 어떻게 줄바꿈 될지 정해줌
+        let paragraphStyle = NSMutableParagraphStyle()
+        // natural alignment는 앱 로컬에 맞추어줌, 자동 줄바꿈 설정
+        paragraphStyle.alignment = .natural
+        paragraphStyle.lineBreakMode = .byWordWrapping
+        // 속성 정의 후 attributedString 생성
+        let textAttributes = [
+            NSAttributedString.Key.paragraphStyle: paragraphStyle,
+            NSAttributedString.Key.font: textFont
+        ]
+        let attributedText = NSAttributedString(string: body, attributes: textAttributes)
+        let textRect = CGRect(x: 10, y: textTop, width: pageRect.width - 20, height: pageRect.height - textTop - pageRect.height / 5.0)
+        attributedText.draw(in: textRect)
     }
     
 }

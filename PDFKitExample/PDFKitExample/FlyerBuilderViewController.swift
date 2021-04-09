@@ -67,8 +67,9 @@ class FlyerBuilderViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "previewSegue" {
             guard let vc = segue.destination as? PDFPreviewViewController,
-                  let title = flyerTextEntry.text else { return }
-            let pdfCreator = PDFCreator(title: title, body: "", image: UIImage(), contact: "")
+                  let title = flyerTextEntry.text,
+                  let body = bodyTextView.text else { return }
+            let pdfCreator = PDFCreator(title: title, body: body, image: UIImage(), contact: "")
             // 데이터 주입 - 캡슐화 안해도 되나?
             vc.documentData = pdfCreator.createFlyer()
         }
