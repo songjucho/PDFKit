@@ -28,7 +28,18 @@ class FlyerBuilderViewController: UIViewController {
     }
     
     @objc func shareAction() {
-        print("Share icon touched.")
+        guard let title = flyerTextEntry.text,
+              let body = bodyTextView.text,
+              let image = imagePreview.image else {
+            let alert = UIAlertController(title: "빈칸을 채워주십쇼", message: "아직 덜 쓰셨어요 승생님", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        let pdfCreator = PDFCreator(title: title, body: body, image: image, contact: "")
+        let pdfData = pdfCreator.createFlyer()
+        let vc = UIActivityViewController(activityItems: [pdfData], applicationActivities: [])
+        present(vc, animated: true, completion: nil)
     }
     
     @IBAction func selectImageTouched(_ sender: Any) {
